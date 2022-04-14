@@ -8,12 +8,15 @@ namespace SportClubManager.App.Managers
         public List<Trainer> Trainers = new List<Trainer>();
         private readonly MenuActionService _actionService;
         private TrainerService _trainerService;
+        public TrainerManager()
+        {
+
+        }
         public TrainerManager(TrainerService trainerService, MenuActionService actionService)
         {
             _actionService = actionService;
             _trainerService = trainerService;
         }
-
         public void SelectOptionInTrainerMenu()
         {
             while (true)
@@ -83,7 +86,6 @@ namespace SportClubManager.App.Managers
             description = Console.ReadLine();
             _trainerService.UpdateTrainerDetails(trainer, name, lastName, age, description);
             return trainer;
-
         }
         public void RemoveById(int id)
         {
@@ -119,7 +121,6 @@ namespace SportClubManager.App.Managers
             }
             return trainerToShow;
         }
-
         private int ChooseProfessionOfTrainer()
         {
             Console.Clear();
@@ -164,7 +165,6 @@ namespace SportClubManager.App.Managers
             }
             return true;
         }
-
         private int ChooseTrainerView()
         {
             Console.Clear();
@@ -177,7 +177,6 @@ namespace SportClubManager.App.Managers
                 Int32.TryParse(tempId, out id);
             }
             return id;
-
         }
         private void GoToMenuView()
         {

@@ -1,14 +1,19 @@
 ﻿using SportClubManager.Domain.Common;
+using System.Xml.Serialization;
 
 namespace SportClubManager.Domain.Entity
 {
     public class Training : BaseEntity
     {
-        public List<Trainer> trainers;
-        public List<Player> players;
+        [XmlElement("Trainer")]
+        public List<Trainer> Trainers;
+        [XmlElement("Players")]
+        public List<Player> Players;
+        [XmlElement("Name")]
+        public string Name { get; set; }
+        public Training()
+        {
 
-        public string Date { get; set; }
-
-        public string Discipline { get; set; }
+        }
     }
 }

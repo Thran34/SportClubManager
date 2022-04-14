@@ -12,7 +12,6 @@ namespace SportClubManager.App.Managers
             _clubDataService = clubDataService;
             _actionService = actionService;
         }
-
         public void SetClubData(MenuActionService actionService)
         {
             Console.Clear();
@@ -30,12 +29,11 @@ namespace SportClubManager.App.Managers
 
             Console.WriteLine("\nType in Your club name: ");
             string name = Console.ReadLine();
-            Console.WriteLine("Type in Your club date of creation:  ");
-            string dateOfForm = Console.ReadLine();
+            Console.WriteLine("Type in Your club date of creation: (dd/mm/yyyy) ");
+            DateTime dateOfForm = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Choose the club's discipline: ");
             string nameOfSport = Console.ReadLine();
             _clubDataService.SetClubData(name, dateOfForm, nameOfSport);
-
         }
     }
 }

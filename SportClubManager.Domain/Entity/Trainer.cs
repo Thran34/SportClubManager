@@ -13,7 +13,6 @@ namespace SportClubManager.Domain.Entity
         public int Age { get; set; }
         [XmlElement("Description")]
         public string Description { get; set; }
-
         public Trainer()
         {
         }

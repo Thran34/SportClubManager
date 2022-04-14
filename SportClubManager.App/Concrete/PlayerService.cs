@@ -1,4 +1,5 @@
 ﻿using SportClubManager.App.Common;
+using SportClubManager.Domain.Common;
 using SportClubManager.Domain.Entity;
 
 namespace SportClubManager.App.Concrete
@@ -9,14 +10,12 @@ namespace SportClubManager.App.Concrete
         {
 
         }
-
         public PlayerService(string path)
         {
 
             Items = ReadItemsFromXml("Players", path).ToList();
 
         }
-
         public void PlayerDetails(Player player)
         {
             if (player == null) return;
@@ -25,6 +24,7 @@ namespace SportClubManager.App.Concrete
             Console.WriteLine($"Last name: {player.LastName}");
             Console.WriteLine($"Age: {player.Age}");
             Console.WriteLine($"Description: { player.Description}");
+            Console.WriteLine($"Profession: {(Profession)player.Category}");
         }
         public Player UpdatePlayerDetails(Player player, string name, string lastName, int age, string description)
         {
@@ -34,6 +34,5 @@ namespace SportClubManager.App.Concrete
             player.Description = description;
             return player;
         }
-
     }
 }

@@ -8,12 +8,15 @@ namespace SportClubManager.App.Managers
         public List<Player> Players = new List<Player>();
         private readonly MenuActionService _actionService;
         private PlayerService _playerService;
+        public PlayerManager()
+        {
+
+        }
         public PlayerManager(PlayerService playerService, MenuActionService actionService)
         {
             _actionService = actionService;
             _playerService = playerService;
         }
-
         public void SelectOptionInPlayerMenu()
         {
             while (true)
@@ -83,7 +86,6 @@ namespace SportClubManager.App.Managers
             description = Console.ReadLine();
             _playerService.UpdatePlayerDetails(player, name, lastName, age, description);
             return player;
-
         }
         public void RemoveById(int id)
         {
@@ -160,24 +162,20 @@ namespace SportClubManager.App.Managers
             {
                 Console.WriteLine($"There is no player in data base. Consider hiring new personel!");
                 return false;
-
             }
             return true;
         }
-
         private int ChoosePlayerView()
         {
             Console.Clear();
             int id = 0;
             Console.WriteLine("Choose one of the following players: ");
             if (PlayersView(null, false))
-
             {
                 var tempId = Console.ReadLine();
                 Int32.TryParse(tempId, out id);
             }
             return id;
-
         }
         private void GoToMenuView()
         {

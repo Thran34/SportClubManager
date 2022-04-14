@@ -11,10 +11,12 @@ namespace SportClubManagerApp
             MenuActionService actionService = new MenuActionService();
             ClubDataService clubDataService = new ClubDataService();
             ClubDataManager clubDataManager = new ClubDataManager(clubDataService, actionService);
-            TrainerService trainerService = new TrainerService(@"C:Temp\Trainers.xml");
+            TrainerService trainerService = new TrainerService(@"C:\Users\thran\Desktop\encje\\Trainers.xml");
             TrainerManager trainerManager = new TrainerManager(trainerService, actionService);
-            PlayerService playerService = new PlayerService(@"C:Temp\Players.xml");
+            PlayerService playerService = new PlayerService(@"C:\Users\thran\Desktop\encje\Players.xml");
             PlayerManager playerManager = new PlayerManager(playerService, actionService);
+            TrainingService trainingService = new TrainingService(@"C:\Users\thran\Desktop\encje\Training.xml");
+            TrainingManager trainingManager = new TrainingManager(trainingService, actionService, trainerService, playerService);
 
             while (true)
             {
@@ -33,8 +35,9 @@ namespace SportClubManagerApp
                 {
                     case '0':
                         clubDataService.SaveClubDataToXml();
-                        trainerService.SaveItemsToXml("Trainers", @"C:Temp\Trainers.xml");
-                        playerService.SaveItemsToXml("Players", @"C:Temp\Players.xml");
+                        trainerService.SaveItemsToXml("Trainers", @"C:\Users\thran\Desktop\encje\Trainers.xml");
+                        playerService.SaveItemsToXml("Players", @"C:\Users\thran\Desktop\encje\Players.xml");
+                        trainingService.SaveItemsToXml("TrainingSchedule", @"C:\Users\thran\Desktop\encje\Training.xml");
                         Environment.Exit(0);
                         break;
                     case '1':
@@ -46,7 +49,11 @@ namespace SportClubManagerApp
                     case '3':
                         playerManager.SelectOptionInPlayerMenu();
                         break;
+                    case '4':
+                        trainingManager.SelectOptionInTrainingMenu();
+                        break;
                     default:
+                        Console.WriteLine("There is no such option!");
                         break;
                 }
             }

@@ -1,6 +1,6 @@
 ﻿namespace SportClubManager.Domain.Common
 {
-    public enum NameofSport
+    public enum Profession
     {
         Basketball = 1,
         Volleyball,

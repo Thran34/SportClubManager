@@ -50,15 +50,15 @@ namespace SportClubManager.App.Concrete
             AddItem(new MenuAction(5, "Update player details", "PlayerMenu"));
             AddItem(new MenuAction(6, "Delete player", "PlayerMenu"));
 
-
-
-
-
+            AddItem(new MenuAction(0, "Back to previous menu", "TrainingMenu"));
+            AddItem(new MenuAction(1, "Show all trainings from category", "TrainingMenu"));
+            AddItem(new MenuAction(2, "Show training details", "TrainingMenu"));
+            AddItem(new MenuAction(3, "Add training", "TrainingMenu"));
 
 
             for (int i = 1; i <= 4; i++)
             {
-                AddItem(new MenuAction(i, ((NameofSport)i).ToString(), "Profession"));
+                AddItem(new MenuAction(i, ((Profession)i).ToString(), "Profession"));
             }
         }
     }
