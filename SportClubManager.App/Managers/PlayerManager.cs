@@ -1,4 +1,5 @@
 ﻿using SportClubManager.App.Concrete;
+using SportClubManager.Domain.Common;
 using SportClubManager.Domain.Entity;
 
 namespace SportClubManager.App.Managers
@@ -117,7 +118,7 @@ namespace SportClubManager.App.Managers
             var playerToShow = _playerService.GetItemById(idToDetail);
             if (idToDetail != null)
             {
-                _playerService.PlayerDetails(playerToShow);
+                PlayerDetails(playerToShow);
             }
             return playerToShow;
         }
@@ -181,6 +182,16 @@ namespace SportClubManager.App.Managers
         {
             Console.WriteLine("Press any button to get back to previous menu");
             Console.ReadKey();
+        }
+        private void PlayerDetails(Player player)
+        {
+            if (player == null) return;
+            Console.WriteLine($"\nId: {player.Id}");
+            Console.WriteLine($"Name: {player.Name}");
+            Console.WriteLine($"Last name: {player.LastName}");
+            Console.WriteLine($"Age: {player.Age}");
+            Console.WriteLine($"Description: { player.Description}");
+            Console.WriteLine($"Profession: {(Profession)player.Category}");
         }
     }
 }
